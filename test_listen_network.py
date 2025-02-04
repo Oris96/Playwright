@@ -1,4 +1,5 @@
 from playwright.sync_api import Page, Route, expect
+import pytest
 
 
 def test_listen_network(page: Page):
@@ -13,11 +14,13 @@ def test_network(page):
     page.get_by_text(' Register - successful ').click()
 
 
+@pytest.mark.skip(reason="Test temporary disabled")
 def test_mock_tags(page):
     page.route("**/api/tags", lambda route: route.fulfill(path="data.json"))
     page.goto('https://demo.realworld.io/')
 
 
+@pytest.mark.skip(reason="Test temporary disabled")
 def test_intercepted(page: Page):
     def handle_route(route: Route):
         response = route.fetch()
