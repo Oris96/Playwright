@@ -34,7 +34,7 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
-      - uses: simple-elf/allure-report-action@master
+      - uses: simple-elf/allure-report-action@development
         if: always()
         id: allure-report
         with:
